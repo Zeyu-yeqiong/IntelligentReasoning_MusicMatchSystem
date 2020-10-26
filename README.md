@@ -22,7 +22,7 @@ Put it in to project root directory.
 ### Guide
 - run run.py in root directory.
 - open browser, go to http://127.0.0.1:8987/index.
-- Click choose file button, select a MP4 or AVI format file and upload it
+- Click choose file button, select a MP4 or AVI format file and upload it (we prepare "demo_video/demo_video.mp4" for you to test)
 - Waiting for 1 - 5 mins, you can see progress in terminal output
 - return and play a new a video in FE ,
 
