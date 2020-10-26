@@ -1,0 +1,31 @@
+when nums=0 then selType=random
+when nums=1 then selType=one
+when nums=2 then selType=two
+
+when selType=two and mainTag=yes and tag=sports then mainType=passsion_med
+when selType=two and mainTag=yes and tag=eat then mainType=quiet_med
+when selType=two and mainTag=yes and tag=furniture then mainType=relaxed_med
+when selType=two and mainTag=yes and tag=car then mainType=excited_med
+when selType=two and mainTag=yes and tag=animal then mainType=happy_med
+
+when mainTag=false and tag=food then subType=static
+when mainTag=false and tag=furniture then subType=static
+when mainTag=false and tag=sports then subType=active
+when mainTag=false and tag=car then subType=active
+when mainTag=false and tag=animal then subType=static
+
+when selType=random then playMusic=randomGroup
+when selType=one and tag=sports then playMusic=passion_med
+when mainType=passion_med and subType=static then playMusic=passion_light
+
+when mainType=passion_med and subType=static then playMusic=passion_light
+when mainType=passion_med and subType=active then playMusic=passion_high
+when mainType=quiet_med and subType=static then playMusic=quiet_high
+when mainType=quiet_med and subType=active then playMusic=quiet_light
+when mainType=relaxed_med and subType=static then playMusic=relaxed_high
+when mainType=relaxed_med and subType=active then playMusic=relaxed_light
+when mainType=excited_med and subType=static then playMusic=excited_light
+when mainType=excited_med and subType=active then playMusic=excited_high
+when mainType=happy_med and subType=static then playMusic=happy_light
+when mainType=happy_med and subType=active then playMusic=happy_high
+
