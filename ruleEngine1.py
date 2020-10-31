@@ -92,16 +92,16 @@ dicts = {
             , 'spoon':'eat', 'toaster':'eat'}
 
 Array = [-1,1,-1,1,-1,1,-1,1,-1,1]
-
+change_array=[0,2,1,9,6,1,1,2,2,0]
 dict_music = {'passion_light':Array[0],'passion_high':Array[1], 'quiet_light':Array[2],'quiet_high':Array[3],
               'relaxed_light':Array[4],'relaxed_high':Array[5],'happy_light':Array[6],'happy_high':Array[7],
               'excited_light':Array[8],'excited_high':Array[9]}
 
 
 
-dict_change = {'passion_light':Array[0],'passion_high':Array[1], 'quiet_light':Array[2],'quiet_high':Array[3],
-              'relaxed_light':Array[4],'relaxed_high':Array[5],'happy_light':Array[6],'happy_high':Array[7],
-              'excited_light':Array[8],'excited_high':Array[9]}
+dict_change = {'passion_light':change_array[0],'passion_high':change_array[1], 'quiet_light':change_array[2],'quiet_high':change_array[3],
+              'relaxed_light':change_array[4],'relaxed_high':change_array[5],'happy_light':change_array[6],'happy_high':change_array[7],
+              'excited_light':change_array[8],'excited_high':change_array[9]}
 
 
 # lens = len(nums2)
