@@ -84,7 +84,7 @@ def upload():
             music_type = ruleEngine1.find_music(labels)
             if is_number(music_type[-2]):
                 dics = {1: 'passion1', 2: 'passion-1', 3: 'excited1', 4: 'excited-1', 5: 'happy1', 6: 'happy-1',
-                        7: 'relax-1', 8: 'relax1', 9: 'quiet-1', 10: 'quiet1'}
+                        7: 'relaxed-1', 8: 'relaxed1', 9: 'quieted-1', 10: 'quiet1'}
                 dics_ch = {value: key for key, value in dics.items()}
                 music_type_first = music_type[:-1]
                 music_first_num = dics_ch[music_type_first]
@@ -154,7 +154,7 @@ def upload():
             music_type = ruleEngine1.find_music(labels)
             if is_number(music_type[-2]):
                 dics = {1: 'passion1', 2: 'passion-1', 3: 'excited1', 4: 'excited-1', 5: 'happy1', 6: 'happy-1',
-                        7: 'relax-1', 8: 'relax1', 9: 'quiet-1', 10: 'quiet1'}
+                        7: 'relaxed-1', 8: 'relaxed1', 9: 'quiet-1', 10: 'quiet1'}
                 dics_ch = {value: key for key, value in dics.items()}
                 music_type_first = music_type[:-1]
                 music_first_num = dics_ch[music_type_first]
