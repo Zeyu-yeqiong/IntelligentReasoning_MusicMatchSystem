@@ -73,23 +73,32 @@ def find_music_type(num):
                 return condition
 
 dicts = {
-'baseball bat':'sport', 'baseball glove':'sport', 'frisbee':'sport', 'kite':'sport', 'remote':'sport', 'snowboard'
-:'sport', 'sports ball':'sport', 'surfboard':'sport', 'tennis racket':'sport',
+    'baseball bat': 'sport', 'baseball glove': 'sport', 'frisbee': 'sport', 'kite': 'sport', 'remote': 'sport',
+    'snowboard'
+    : 'sport', 'sports ball': 'sport', 'surfboard': 'sport', 'tennis racket': 'sport', 'boat':'sport', 'skis':'sport',
 
-'airplane':'car', 'bicycle':'car', 'fire hydrant':'car', 'motorcycle':'car', 'parking meter':'car', 'stop sign':'car'
-            , 'traffic light':'car', 'train':'car', 'truck':'car','car':'car',
+    'airplane': 'car', 'bicycle': 'car', 'fire hydrant': 'car', 'motorcycle': 'car', 'parking meter': 'car',
+    'stop sign': 'car','sink':'car','skateboard':'car'
+    , 'traffic light': 'car', 'train': 'car', 'truck': 'car', 'car': 'car', 'bus': 'car',
 
-'bear':'animal', 'carrot':'animal', 'cat':'animal', 'cow':'animal', 'dog':'animal', 'elephant':'animal', 'giraffe':'animal',
-            'horse':'animal', 'mouse':'animal', 'person':'animal', 'teddy bear':'animal', 'zebra':'animal','bird':'animal',
+    'bear': 'animal', 'carrot': 'animal', 'cat': 'animal', 'cow': 'animal', 'dog': 'animal', 'elephant': 'animal',
+    'giraffe': 'animal', 'sheep':'animal',
+    'horse': 'animal', 'mouse': 'animal', 'person': 'animal', 'teddy bear': 'animal', 'zebra': 'animal',
+    'bird': 'animal',
 
-'backpack':'furniture', 'bench':'furniture', 'cell phone':'furniture', 'chair':'furniture', 'clock':'furniture', 'couch':'furniture',
-            'cup':'furniture', 'dining table':'furniture', 'bowl':'furniture', 'bed':'furniture',
-'fork':'furniture', 'hair drier':'furniture', 'handbag':'furniture', 'keyboard':'furniture', 'knife':'furniture', 'laptop':'furniture'
-            , 'microwave':'furniture', 'potted plant':'furniture', 'refrigerator':'furniture', 'suitcase':'furniture',
-'tie':'furniture', 'toilet':'furniture', 'toothbrush':'furniture', 'tv':'furniture', 'umbrella':'furniture', 'vase':'furniture', 'wine glass':'furniture',
+    'backpack': 'furniture', 'bench': 'furniture', 'cell phone': 'furniture', 'chair': 'furniture',
+    'clock': 'furniture', 'couch': 'furniture',
+    'cup': 'furniture', 'dining table': 'furniture', 'bowl': 'furniture', 'bed': 'furniture',
+    'fork': 'furniture', 'hair drier': 'furniture', 'handbag': 'furniture', 'keyboard': 'furniture',
+    'knife': 'furniture', 'laptop': 'furniture','scissors':'furniture'
+    , 'microwave': 'furniture', 'potted plant': 'furniture', 'refrigerator': 'furniture', 'suitcase': 'furniture',
+    'bottle': 'furniture',
+    'tie': 'furniture', 'toilet': 'furniture', 'toothbrush': 'furniture', 'tv': 'furniture', 'umbrella': 'furniture',
+    'vase': 'furniture', 'wine glass': 'furniture', 'book':'furniture',
 
-'apple':'eat', 'banana':'eat', 'broccoli':'eat', 'donut':'eat', 'hot dog':'eat', 'orange':'eat', 'oven':'eat', 'pizza':'eat'
-            , 'spoon':'eat', 'toaster':'eat'}
+    'apple': 'eat', 'banana': 'eat', 'broccoli': 'eat', 'donut': 'eat', 'hot dog': 'eat', 'orange': 'eat',
+    'oven': 'eat', 'pizza': 'eat','sandwich':'eat'
+    , 'cake':'eat','spoon': 'eat', 'toaster': 'eat'}
 
 Array = [-1,1,-1,1,-1,1,-1,1,-1,1]
 change_array=[0,2,1,9,6,1,1,2,2,0]
@@ -162,41 +171,3 @@ def find_music(nums2):
         print('music_type',music_type,conditions,changes)
         music_type = music_type[0]+str(conditions)+str(changes)
     return music_type
-        # print(music_type,music_subtype)
-        # if music_type == 'passsion_med' or music_type == 'excited_med' or music_type == 'happy_med':
-        #     music_type = 'active'
-        # else:
-        #     music_type = 'static'
-        # if music_type == music_subtype:
-        #     print('maintype+1')
-        # elif music_type != music_subtype:
-        #     print('maintype-1')
-
-# AUD_COUNT=5
-#
-#
-# def read_dict(chromosome):
-#     iteration=0
-#     for key in dict_music.keys():
-#         dict_music[key] = chromosome[iteration]
-#         iteration += 1
-# def create_time():
-#     watch_time = []
-#     for i in range(AUD_COUNT):
-#         watch_time.append(random.uniform(5, 18))
-#     avg_time = sum(watch_time) / len(watch_time)
-#     return  avg_time
-#
-# chromosome=Array.copy()
-# def evaluate(time, iter):
-#     return time > 15 or iter > 100
-
-# while True:
-#     iteration=0
-#     read_dict(chromosome)
-#     music_type = find_music(nums2)
-#     avg_time=create_time()
-#     if evaluate(avg_time, iteration):
-#         break
-#     chromosome=GA.genetic(chromosome, avg_time)
-#     iteration += 1
