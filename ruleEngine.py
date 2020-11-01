@@ -72,29 +72,38 @@ def find_music_type(num):
                 return condition
 
 dicts = {
-'baseball bat':'sport', 'baseball glove':'sport', 'frisbee':'sport', 'kite':'sport', 'remote':'sport', 'snowboard'
-:'sport', 'sports ball':'sport', 'surfboard':'sport', 'tennis racket':'sport',
+    'baseball bat': 'sport', 'baseball glove': 'sport', 'frisbee': 'sport', 'kite': 'sport', 'remote': 'sport',
+    'snowboard'
+    : 'sport', 'sports ball': 'sport', 'surfboard': 'sport', 'tennis racket': 'sport', 'boat':'sport', 'skis':'sport',
 
-'airplane':'car', 'bicycle':'car', 'fire hydrant':'car', 'motorcycle':'car', 'parking meter':'car', 'stop sign':'car'
-            , 'traffic light':'car', 'train':'car', 'truck':'car','car':'car',
+    'airplane': 'car', 'bicycle': 'car', 'fire hydrant': 'car', 'motorcycle': 'car', 'parking meter': 'car',
+    'stop sign': 'car','sink':'car','skateboard':'car'
+    , 'traffic light': 'car', 'train': 'car', 'truck': 'car', 'car': 'car', 'bus': 'car',
 
-'bear':'animal', 'carrot':'animal', 'cat':'animal', 'cow':'animal', 'dog':'animal', 'elephant':'animal', 'giraffe':'animal',
-            'horse':'animal', 'mouse':'animal', 'person':'animal', 'teddy bear':'animal', 'zebra':'animal','bird':'animal',
+    'bear': 'animal', 'carrot': 'animal', 'cat': 'animal', 'cow': 'animal', 'dog': 'animal', 'elephant': 'animal',
+    'giraffe': 'animal', 'sheep':'animal',
+    'horse': 'animal', 'mouse': 'animal', 'person': 'animal', 'teddy bear': 'animal', 'zebra': 'animal',
+    'bird': 'animal',
 
-'backpack':'furniture', 'bench':'furniture', 'cell phone':'furniture', 'chair':'furniture', 'clock':'furniture', 'couch':'furniture',
-            'cup':'furniture', 'dining table':'furniture', 'bowl':'furniture', 'bed':'furniture',
-'fork':'furniture', 'hair drier':'furniture', 'handbag':'furniture', 'keyboard':'furniture', 'knife':'furniture', 'laptop':'furniture'
-            , 'microwave':'furniture', 'potted plant':'furniture', 'refrigerator':'furniture', 'suitcase':'furniture',
-'tie':'furniture', 'toilet':'furniture', 'toothbrush':'furniture', 'tv':'furniture', 'umbrella':'furniture', 'vase':'furniture', 'wine glass':'furniture',
+    'backpack': 'furniture', 'bench': 'furniture', 'cell phone': 'furniture', 'chair': 'furniture',
+    'clock': 'furniture', 'couch': 'furniture',
+    'cup': 'furniture', 'dining table': 'furniture', 'bowl': 'furniture', 'bed': 'furniture',
+    'fork': 'furniture', 'hair drier': 'furniture', 'handbag': 'furniture', 'keyboard': 'furniture',
+    'knife': 'furniture', 'laptop': 'furniture','scissors':'furniture'
+    , 'microwave': 'furniture', 'potted plant': 'furniture', 'refrigerator': 'furniture', 'suitcase': 'furniture',
+    'bottle': 'furniture',
+    'tie': 'furniture', 'toilet': 'furniture', 'toothbrush': 'furniture', 'tv': 'furniture', 'umbrella': 'furniture',
+    'vase': 'furniture', 'wine glass': 'furniture', 'book':'furniture',
 
-'apple':'eat', 'banana':'eat', 'broccoli':'eat', 'donut':'eat', 'hot dog':'eat', 'orange':'eat', 'oven':'eat', 'pizza':'eat'
-            , 'spoon':'eat', 'toaster':'eat'}
+    'apple': 'eat', 'banana': 'eat', 'broccoli': 'eat', 'donut': 'eat', 'hot dog': 'eat', 'orange': 'eat',
+    'oven': 'eat', 'pizza': 'eat','sandwich':'eat'
+    , 'cake':'eat','spoon': 'eat', 'toaster': 'eat'}
 
-Array = [-1,1,-1,1,-1,1,-1,1,-1,1]
+array_music = [-1,1,-1,1,-1,1,-1,1,-1,1]
 
-dict_music = {'passion_light':Array[0],'passion_high':Array[1], 'quiet_light':Array[2],'quiet_high':Array[3],
-              'relaxed_light':Array[4],'relaxed_high':Array[5],'happy_light':Array[6],'happy_high':Array[7],
-              'excited_light':Array[8],'excited_high':Array[9]}
+dict_music = {'passion_light':array_music[0],'passion_high':array_music[1], 'quiet_light':array_music[2],'quiet_high':array_music[3],
+              'relaxed_light':array_music[4],'relaxed_high':array_music[5],'happy_light':array_music[6],'happy_high':array_music[7],
+              'excited_light':array_music[8],'excited_high':array_music[9]}
 
 
 
@@ -105,27 +114,27 @@ dict_music = {'passion_light':Array[0],'passion_high':Array[1], 'quiet_light':Ar
 # print(find_music_subtype(dicts[nums2[1]]))
 # print(find_music_type(dicts[nums2[0]]))
 
-def find_image_label(upload_path, Array):
+def find_image_label(image_path, Array):
+    # print('upload:',upload_path)
 
-    image_path = detection.extract_frame(upload_path)
-    print(image_path)
+    # print('return path:',image_path)
     labels = []
     # 使用Opencv转换一下图片格式和名称
     model, inp, transform_com = img_read.init_model()
     for image in os.listdir(image_path):
-        print(image_path + '/' + image)
+        # print(image_path + '/' + image)
         img = cv2.imread(image_path + '/' + image)
-        cv2.imwrite(os.path.join('GA_music/test.jpg'), img)
+        cv2.imwrite(os.path.join('test.jpg'), img)
         # labels=main_coco(img)
 
-        labelFrame = img_read.seach_label('GA_music/test.jpg', model, inp, transform_com)
-        print(labelFrame)
+        labelFrame = img_read.seach_label('test.jpg', model, inp, transform_com)
+        # print(labelFrame)
         for i in range(len(labelFrame)):
             if labelFrame[i] not in labels:
                 labels.append(labelFrame[i])
-
-    print('labels:', labels)
-
+    labels = labels[:2]
+    # print('labels:', labels)
+    # print(Array)
     dict_change = {'passion_light': Array[0], 'passion_high': Array[1], 'quiet_light': Array[2], 'quiet_high': Array[3],
                    'relaxed_light': Array[4], 'relaxed_high': Array[5], 'happy_light': Array[6], 'happy_high': Array[7],
                    'excited_light': Array[8], 'excited_high': Array[9]}
@@ -171,53 +180,15 @@ def find_music(nums2,dict_change):
                 music_type_dic = music_type_dic[0].strip(' ')
                 music_subtype_dic = line[2].split('then')
                 music_subtype_dic = music_subtype_dic[0].strip(' ')
-                print(music_type_dic,music_type,music_subtype_dic,music_subtype)
+                # print(music_type_dic,music_type,music_subtype_dic,music_subtype)
                 if music_type_dic == music_type and music_subtype_dic == music_subtype:
-                    print('keys error')
+                    # print('keys error')
                     keys = line[-1].strip('\n')
         conditions = dict_music[keys]
         changes = dict_change[keys]
         # print(conditions)
         music_type = music_type.split('_')
         # print(music_type[0]+str(conditions))
-        print('music_type',music_type)
         music_type = music_type[0]+str(conditions)+str(changes)
+        # print('music_type', music_type)
     return music_type
-        # print(music_type,music_subtype)
-        # if music_type == 'passsion_med' or music_type == 'excited_med' or music_type == 'happy_med':
-        #     music_type = 'active'
-        # else:
-        #     music_type = 'static'
-        # if music_type == music_subtype:
-        #     print('maintype+1')
-        # elif music_type != music_subtype:
-        #     print('maintype-1')
-
-# AUD_COUNT=5
-#
-#
-# def read_dict(chromosome):
-#     iteration=0
-#     for key in dict_music.keys():
-#         dict_music[key] = chromosome[iteration]
-#         iteration += 1
-# def create_time():
-#     watch_time = []
-#     for i in range(AUD_COUNT):
-#         watch_time.append(random.uniform(5, 18))
-#     avg_time = sum(watch_time) / len(watch_time)
-#     return  avg_time
-#
-# chromosome=Array.copy()
-# def evaluate(time, iter):
-#     return time > 15 or iter > 100
-
-# while True:
-#     iteration=0
-#     read_dict(chromosome)
-#     music_type = find_music(nums2)
-#     avg_time=create_time()
-#     if evaluate(avg_time, iteration):
-#         break
-#     chromosome=GA.genetic(chromosome, avg_time)
-#     iteration += 1
