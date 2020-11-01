@@ -122,6 +122,13 @@ def mutate(offspring):
                 OFF_POOL.append(old_value)
     return offspring
 
+def write_to_txt(filename, population):
+    with open(filename, 'w') as f:
+        res = population[0]
+        for i in res:
+            f.write(str(i))
+    f.close()
+    
 #train GA using videos
 def train():
     population=initialize_pop()
@@ -160,4 +167,5 @@ def train():
                 iter+=1
     return population
 
-# print(train())
+res_pop=train()
+write_to_txt('chromosome.txt', res_pop)
